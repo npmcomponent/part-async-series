@@ -5,13 +5,13 @@
 node.js:
 
 ```bash
-npm install async-series
+npm install part-async-series
 ```
 
 browser:
 
 ```bash
-component install async-series
+component install part/async-series
 ```
 
 ## Example
