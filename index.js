@@ -10,7 +10,10 @@ module.exports = function(fns, val, done){
   function next() {
     fn = fns[i++];
 
-    if (!fn) return done();
+    if (!fn) {
+      if (done) done();
+      return;
+    }
 
     if (2 == fn.length) {
       fn(val, handle);
