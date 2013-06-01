@@ -1,4 +1,4 @@
-module.exports = function(fns, val, done){
+module.exports = function(fns, val, done, binding){
   var i = 0, fn;
 
   function handle(err) {
@@ -9,9 +9,9 @@ module.exports = function(fns, val, done){
   function next() {
     if (fn = fns[i++]) {
       if (2 === fn.length) {
-        fn(val, handle);
+        fn.call(binding, val, handle);
       } else {
-        if (false === fn(val))
+        if (false === fn.call(binding, val))
           done(new Error('haulted'));
         else
           next();

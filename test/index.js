@@ -44,4 +44,21 @@ describe('async-series', function(){
       done();
     });
   });
+
+  it('should support custom binding', function(done){
+    var bindings = [];
+    var binding = {};
+    var a = function(context){
+      bindings.push(this);
+    }
+    var b = function(context){
+      bindings.push(this);
+    }
+
+    series([a, b], null, function(){
+      assert(binding === bindings[0]);
+      assert(binding === bindings[1]);
+      done();
+    }, binding);
+  });
 });
