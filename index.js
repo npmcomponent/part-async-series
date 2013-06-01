@@ -1,6 +1,5 @@
 module.exports = function(fns, val, done){
-  var i = 0
-    , fn;
+  var i = 0, fn;
 
   function handle(err) {
     if (err) return done(err);
@@ -15,7 +14,7 @@ module.exports = function(fns, val, done){
       return;
     }
 
-    if (2 == fn.length) {
+    if (2 === fn.length) {
       fn(val, handle);
     } else {
       if (false === fn(val))
