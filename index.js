@@ -7,20 +7,17 @@ module.exports = function(fns, val, done){
   }
 
   function next() {
-    fn = fns[i++];
-
-    if (!fn) {
-      if (done) done();
-      return;
-    }
-
-    if (2 === fn.length) {
-      fn(val, handle);
+    if (fn = fns[i++]) {
+      if (2 === fn.length) {
+        fn(val, handle);
+      } else {
+        if (false === fn(val))
+          done(new Error('haulted'));
+        else
+          next();
+      }
     } else {
-      if (false === fn(val))
-        done(new Error('haulted'));
-      else
-        next();
+      if (done) done();
     }
   }
 
