@@ -1,6 +1,8 @@
 {
   "name": "part-async-series",
+  "description": "Async Series component",
   "version": "0.1.0",
-  "main": "./index.js",
-  "author": "Lance Pollard <lancejpollard@gmail.com>"
+  "keywords": [],
+  "dependencies": {},
+  "license": "MIT"
 }
